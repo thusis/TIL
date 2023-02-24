@@ -108,3 +108,8 @@ local.properties
 hs_err_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java
+TOYva/mvnw.cmd
+TOYva/mvnw
+TOYva/.mvn/wrapper/maven-wrapper.jar
+TOYva/.mvn/wrapper/maven-wrapper.properties
+React-for-beginner/.vscode/settings.json
