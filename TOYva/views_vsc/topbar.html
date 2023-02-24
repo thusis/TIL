@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src = "https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        .navbar-a_box a {
+            text-decoration: none;
+            color:black;
+            margin: 0 10px;
+        }
+
+        .cafe-name{
+            font-weight: 800;
+            font-size: 2.5rem;
+        }
+
+        .cafe-url{
+            font-size: 1rem;
+        }
+
+        .leftbar-menu{
+            border-top: 2px solid #3d405b;
+            border-bottom: 2px solid #3d405b;
+            padding:0.3rem;
+            line-height: 1.5rem;
+        }
+        
+        .leftbar-menu p{
+            
+            line-height: 1.5rem;
+            vertical-align: middle;
+        }
+
+        /*메인컬러
+        f4f1de,e07a5f,3d405b,81b29a,f2cc8f
+        보충컬러
+        edede9,d6ccc2,f5ebe0,e3d5ca,d5bdaf
+        */
+
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar sticky-top bg-light mb-1">
+        <div class="container-fluid">
+            <a href="" class="navbar-brand">THUSISv1</a>
+            <div class="d-flex navbar-a_box">
+                <a href="">카페홈</a> | 
+                <a href="">이웃</a> | 
+                <a href="">가입카페</a> | 
+                <a href="">새글</a> | 
+                <a href="">내소식</a> | 
+                <a href="">채팅</a> | 
+                <a href="">(유저아이디)</a> | 
+                <a href="">(툴탭)</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mb-1" 
+        style="position:sticky; border: 1px solid lightgray;">
+        <strong class="cafe-name">(카페이름)</strong>
+        <p class="cafe-url">(카페url)</p>
+    </div>
+
+    <script type="text/javascript">
+        var searchParentFrame = null;
+        function searchBoard(){
+            searchParentFrame = document.frmBoardSearch;
+            if(searchParentFrame.searchKeyword.value.split(/[ \t]/g).join("")==""){
+                alert("검색어를 입력하세요.");
+                searchParentFrame.searchKeyword.focus();
+                return;
+            }
+            searchFrmAfter(searchParentFrame);
+            return;
+        }
+        function searchFrmAfter(frm){
+            $("cafe_main").src = "/ArticleSearchList.va?searchKeyword="+frm.searchKeyword.value;
+        }
+    </script>
+
+    <div class="container mb-1">
+        <div class="row justify-content-end">
+            <div class="col-lg-3">
+                <form action="" name="frmBoardSearch" class="input-group">
+                    <input type="text" title="카페글 검색어 입력" class="form-control" name="searchKeyword" onkeydown="if(event.keyCode==13){searchBoard();}">
+                    <button onclick="searchBoard();" type="button" class="btn" style="background-color:#e07a5f;">검색</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<!--탑 끝-->
+
+    <div class="container">
+        <div class="col-2" style="border-top: 2px solid #3d405b;">
+            <div style="background-color: #f8f9fa;">
+                <div class="d-flex justify-content-evenly">
+                    <button class="btn d-inline">카페정보</button>
+                    <button class="btn d-inline">나의활동</button>
+                </div>
+                <hr>
+                
+                <div class="row" id="leftbar-cafeinfo">
+                    <div class="col">카페사진</div>
+                    <div class="col">
+                        <span>(매니저명)</span><br>
+                        <span>(카페개설일)</span><br>
+                        <span>(카페소개)</span><br>
+                    </div>
+                </div>
+                <div class="row" id="leftbar-myinfo">
+                    <div class="col">프로필사진</div>
+                    <div class="col">
+                        <span>(내아이디)</span><br>
+                        <span>(가입일)</span><br>
+                    </div>
+                    <ul class="leftbar-myinfo-detail" style="list-style-type: none;
+                    ">
+                        <li class="d-flex justify-content-between">
+                            <span>방문</span>
+                            <span> *** <span>회</span></span>
+                        </li>
+                        <li class="d-flex justify-content-between">
+                            <span>내가 쓴 글 보기</span>
+                            <span> *** <span>회</span></span>
+                        </li>
+                        <li class="d-flex justify-content-between">
+                            <span>내가 쓴 댓글보기</span>
+                            <span> *** <span>회</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+
+            <button onclick="writeBoard();" type="button" class="container btn mb-2" style="background-color: #3d405b; color:white;">글쓰기</button>
+            
+            <div class="leftbar-menu">
+                <p class="d-flex justify-content-between">
+                    <span>
+                        <i class="bi bi-list-columns-reverse"></i>자유게시판
+                    </span>
+                    <span>
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </span>
+                </p>
+            </div>
+
+            <div style="background-color: #f8f9fa; padding:16px 12px;">
+                <p class="text-start" style="font-weight:700;">최근 댓글 / 답글</p>
+                <p class="text-center">최근 댓글 / 답글이 없습니다</p>        
+            </div>
+        </div>
+
+        <div class="col-10 container">
+
+            <div class="row" style="background-color: bisque;">
+            gkggkglk</div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
