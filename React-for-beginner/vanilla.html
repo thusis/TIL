@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<script>
+    const root = document.getElementById('root');
+
+    const span = React.createElement(
+        "span", //Element 이름
+        {id: "cutie", style:{color:"red"}}, //요소의 attribute
+        "hello, i'm a span"); //요소의 content
+
+    const btn = React.createElement("button", null, "Click me");
+
+    const div = React.createElement("div", null, [span, btn]);
+    //ReactDOM.render(span, root); 는 17버전으로 react18에서는 아래와 같이 사용
+    ReactDOM.createRoot(root).render(btn);
+</script>
+
+</html>
