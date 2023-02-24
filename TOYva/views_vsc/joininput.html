@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap demo</title>
+        <script src = "https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+        <style>
+        </style>
+
+    </head>
+    <body>
+        <div id="wrap" class="container" style="margin-top:100px; ">
+            <!--header-->
+            <div id="header" class="join_membership">
+                <h1>
+                    <a href="" class="h_logo">
+                        <strong>NAVER</strong>
+                    </a>
+                </h1>
+            </div>
+            <!-- // header-->
+
+            <form action="" id="join_form" method="post">
+                <div id="content">
+                    <div class="join_content">
+                        <!--아이디, 비밀번호 입력-->
+                        <div class="row_group">
+                            <div class="join_row">
+                                <h3 class="join_title"><label for="id">아이디</label></h3>
+                                <span class="ps_box int_id">
+                                    <input type="text" id="id" name="id" class="int" title="ID" maxlength="20">
+                                    <span class="step_url">@naver.com</span>
+                                </span>
+                                <span class="error_next_box" id="idMsg" style="display:none"></span>
+                            </div>
+
+                            <div class="join_row">
+                                <h3 class="join_title">
+                                    <label for="pswd1">비밀번호</label>
+                                </h3>
+                                <span class="ps_box int_pass" id="pswd1Img">
+                                    <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" maxlength="20">
+                                    <span class="lbl">
+                                        <span id="pswd1Span" class="step_txt"></span>
+                                </span>
+                                </span>
+                                <span class="error_next_box" id="pswd1Msg" style="display:none" aria-live="assertive">5~12자의 영문 소문자, 숫자와 특수기호(_)만 사용 가능합니다.</span>
+
+                                <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
+                                <span class="ps_box int_pass_check" id="pswd2Img">
+                                    <input type="password" id="pswd2" name="pswd2" class="int" title="비밀번호 재확인 입력" aria-describedby="pswd2Blind" maxlength="20">
+                                    <span id="pswd2Blind" class="wa_blind">설정하려는 비밀번호가 맞는지 확인하기 위해 다시 입력 해주세요.</span>
+                                </span>
+                                <span class="error_next_box" id="pswd2Msg" style="display:none" aria-live="assertive"></span>
+
+                            </div>
+                        </div>
+                        <!-- //아이디, 비밀번호 입력 -->
+
+                        <!-- 이름, 생년월일 입력 -->
+                        <!-- // 이름, 생년월일 입력 -->
+
+                        <!-- 이메일 , 인증번호 입력 -->
+                        <!-- // 이메일 , 인증번호 입력 -->
+                        
+
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </body>
+</html>    
