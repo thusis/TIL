@@ -11,16 +11,26 @@
 <script>
     const root = document.getElementById('root');
 
-    const span = React.createElement(
-        "span", //Element 이름
-        {id: "cutie", style:{color:"red"}}, //요소의 attribute
+    const h3 = React.createElement(
+        "h3", //Element 이름
+        {
+        onMouseEnter: () => console.log("mouse enter"),
+        }, //요소의 attribute 혹은 EventListener
         "hello, i'm a span"); //요소의 content
 
-    const btn = React.createElement("button", null, "Click me");
+    const btn = React.createElement(
+        "button", 
+        {
+            onClick: () => console.log("im clicked"),
+            style:{ backgroundColor: "black", color: "tomato",}
+        }, 
+        "Click me"
+        );
 
-    const div = React.createElement("div", null, [span, btn]);
+    const container = React.createElement("div", null, [h3, btn]);
     //ReactDOM.render(span, root); 는 17버전으로 react18에서는 아래와 같이 사용
-    ReactDOM.createRoot(root).render(btn);
+    // ReactDOM.render(container, root); ==  ReactDOM.createRoot(root).render(container);
+    ReactDOM.createRoot(root).render(container);
 </script>
 
 </html>
