@@ -11,21 +11,16 @@
 <script type="text/babel">
     const root = ReactDOM.createRoot(document.getElementById('root'));
 
-    let counter = 0;
-    function countUp(){
-        counter = counter + 1;
-        root.render(<Container/>);
-    }
-    function Container(){
+    function App(){
+        const [counter, modifier] = React.useState(0);
         return (
             <div>
-                <h3>Total clicks : {counter}</h3>
-                <button onClick={countUp}>Click me</button>
+                <h3>Total clicks : {data[0]}</h3>
+                <button>Click me</button>
             </div>
-        )
+        );
     }
-    root.render(<Container/>);
-    // ReactDOM.createRoot(root).render(<Container/>);
+    root.render(<App/>);
 
     /* JSX
     function Title(){
