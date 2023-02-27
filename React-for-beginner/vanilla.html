@@ -7,30 +7,62 @@
 
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-<script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
     const root = document.getElementById('root');
+    function Title(){
+        return (
+            <h3 
+            id="title" 
+            onMouseEnter= {
+                () => console.log("mouse enter")
+            }>
+            Hello I'm a title
+            </h3>
+        );
+    }
+    
+    const Button = () => (
+        <button 
+            style={{
+                backgroundColor:"tomato",
+            }}
+            onClick={()=> console.log("i'm clicked")}
+        >
+            Click me
+        </button>
+    );
+    
+    const Container =()=>(
+    <div>
+        <Title/>
+        <Button/>
+    </div>);
 
+    ReactDOM.createRoot(root).render(<Container/>);
+
+    /* createElement 
     const h3 = React.createElement(
         "h3", //Element 이름
         {
         onMouseEnter: () => console.log("mouse enter"),
         }, //요소의 attribute 혹은 EventListener
         "hello, i'm a span"); //요소의 content
+   const btn = React.createElement(
+       "button", 
+       {
+           onClick: () => console.log("im clicked"),
+           style:{ backgroundColor: "black", color: "tomato",}
+       }, 
+       "Click me"
+       );
+       const container = React.createElement("div", null, [Title, Button]);
+       
+           //ReactDOM.render(span, root); 는 17버전으로 react18에서는 아래와 같이 사용
+           // ReactDOM.render(container, root); ==  ReactDOM.createRoot(root).render(container);
+           ReactDOM.createRoot(root).render(container);
+    */
 
-    const btn = React.createElement(
-        "button", 
-        {
-            onClick: () => console.log("im clicked"),
-            style:{ backgroundColor: "black", color: "tomato",}
-        }, 
-        "Click me"
-        );
-
-    const container = React.createElement("div", null, [h3, btn]);
-    //ReactDOM.render(span, root); 는 17버전으로 react18에서는 아래와 같이 사용
-    // ReactDOM.render(container, root); ==  ReactDOM.createRoot(root).render(container);
-    ReactDOM.createRoot(root).render(container);
 </script>
 
 </html>
