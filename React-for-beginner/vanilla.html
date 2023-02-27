@@ -9,7 +9,25 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
-    const root = document.getElementById('root');
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+
+    let counter = 0;
+    function countUp(){
+        counter = counter + 1;
+        root.render(<Container/>);
+    }
+    function Container(){
+        return (
+            <div>
+                <h3>Total clicks : {counter}</h3>
+                <button onClick={countUp}>Click me</button>
+            </div>
+        )
+    }
+    root.render(<Container/>);
+    // ReactDOM.createRoot(root).render(<Container/>);
+
+    /* JSX
     function Title(){
         return (
             <h3 
@@ -32,14 +50,8 @@
             Click me
         </button>
     );
-    
-    const Container =()=>(
-    <div>
-        <Title/>
-        <Button/>
-    </div>);
+    */
 
-    ReactDOM.createRoot(root).render(<Container/>);
 
     /* createElement 
     const h3 = React.createElement(
