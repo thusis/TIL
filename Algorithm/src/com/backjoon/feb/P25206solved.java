@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class P25206 {
+public class P25206solved {
 	public static void main(String[] args) {
 		/***
 		 * 학점: a
