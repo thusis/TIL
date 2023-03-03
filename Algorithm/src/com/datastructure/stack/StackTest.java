@@ -1,4 +1,4 @@
-package com.backjoon.mar.stack;
+package com.datastructure.stack;
 
 import java.util.Stack;
 

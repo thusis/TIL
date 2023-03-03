@@ -1,4 +1,4 @@
-package com.backjoon.mar.stack;
+package com.datastructure.stack;
 
 public class Node {
 	/**

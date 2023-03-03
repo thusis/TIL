@@ -1,4 +1,4 @@
-package com.backjoon.mar.stack;
+package com.datastructure.stack;
 
 public class NodeManager {
 	Node top; //가장 최근에 들어온 노드를 가리킴
