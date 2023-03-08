@@ -13,14 +13,22 @@ public class P9935 {
 	
 	12ab112ab2ab
 	12ab
-	 * @param ags
+	
+	남아있는 문자가 없는 경우가 있다. 이때는 "FRULA"
+	
 	 */
 	public static void main(String[] ags) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		try {
-			String input = br.readLine();
-			String explosion = br.readLine();
+			String inputA = br.readLine(); // 1~1,000,000
+			String inputB = br.readLine(); // 1~36
+			
+			for(int i=0; i<inputA.length(); i++) {
+				inputA.charAt(i);
+			}
+		
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
