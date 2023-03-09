@@ -23,12 +23,11 @@ public class P17427 {
 			
 			int ga = 0;
 			
-			for(int i=1; i<=n; i++) { // 시간복잡도 : O(sqrt(n)) * n
-//				HashSet<Integer> set = getYaksu(i);
-//				int fa = getYaksuHab(set);
-				int fa = getYaksuHab(i);
+			for(int i=1; i<=n; i++) {
+				HashSet<Integer> set = getYaksu(i);
+				int fa = getYaksuHab(set);
 				ga = ga + fa;
-				System.out.println(i+"의 약수의 합인 "+fa+"를 합한 값은 "+ga+"\n");
+				System.out.println(i+"를 합한 값은 "+ga+"\n");
 			}
 			
 			System.out.println(ga);
@@ -42,16 +41,29 @@ public class P17427 {
 		
 	}
 
-	private static int getYaksuHab(int n) {
+	private static int getYaksuHab(HashSet<Integer> set) {
 		int result = 0;
+		Iterator<Integer> setIt = set.iterator();
+		while(setIt.hasNext()) {
+			int a = setIt.next();
+			result = result + a;
+			System.out.print(a+" ");
+		}
+		System.out.println(result);
+		return result;
+	}
+
+	private static HashSet<Integer> getYaksu(int n) {
+
+		HashSet<Integer> set = new HashSet<>();
 		
-		for(int i=1; i<=Math.sqrt(n); i++) {//현재 n에 대한 시간 복잡도 O(sqrt(n))
+		for(int i=1; i<=Math.sqrt(n); i++) {
 			if( n % i == 0 ) {
-				if(i!=n/i) { result = result  + i + n/i;}
-				else { result = result + i; }
+				set.add(i);
+				set.add(n/i);
 			}
 		}
-		return result;
+		return set;
 	}
 
 }
