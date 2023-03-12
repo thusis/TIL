@@ -3,7 +3,7 @@ package com.progr.mar;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class P118667 {
+public class P118667habOfQueues {
 	
 	public static int[] queue1;
 	public static int[] queue2;
@@ -60,6 +60,11 @@ public class P118667 {
 		
 		
 		return answer;
+	}
+
+	private static Queue<Integer> biggerQue(Queue<Integer> q1, Queue<Integer> q2) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
