@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class P2751 {
+public class SolvedP2751 {
 //수 정렬하기2
 	
 	private static int[] sorted; 

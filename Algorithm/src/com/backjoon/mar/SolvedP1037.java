@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class P1037solved {
+public class SolvedP1037 {
 //약수
 	public static void main(String[] args) {
 		/**

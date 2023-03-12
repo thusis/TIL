@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class P2309solved {
+public class SolvedP2309 {
 //일곱난쟁이 : 일곱 난쟁이의 키의 합이 100
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

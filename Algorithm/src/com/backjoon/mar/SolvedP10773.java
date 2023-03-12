@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-public class P10773solved {
+public class SolvedP10773 {
 	//제로
 	/**
 	 * 0을 부른 경우 가장 최근에 재민이가 쓴 수가 지워진다 => stack.pop();
