@@ -20,56 +20,47 @@ public class P77484_LottoRanking {
 	 * @param lottos 민우가 구매한 로또 번호 6개 (0~45, 0 이외에 중복 없음)
 	 * @param win_nums 당첨 번호 6개 (1~45)
 	 * 
-	 * @return
+	 * @return answer
 	 * 
 	 * 순서와 상관x
 	 * 당첨 가능한 최고 순위와 최저 순ㄴ위
 	 * 
 	 * STEP1-----
-	 * lottos = int[] 0 + int[] numbers | 0의 개수 세기, 0의 배열을 제외한 그 밖의 번호들로 재구성
-	 * win_nums = int[] numbers + int[] others | numbers와 비교해 일치하는 개수 count(++), 그 밖의 것 othres로 담기
+	 * @count lottos 중 훼손되지 않은 것과 win_nums가 일치하는 개수
+	 * @countOthers lottos 중 훼손되지 않았으면서 win_nums가 불일치하는 개수 ( count + countOthers + 0의 개수 = 6 )
+	 * @countZeros lottos 중 0의 개수
+	 * 
+	 * 달성 가능 최고 순위 : 7 - (count + 0의개수) , 단 범위 지정
+	 * 달성 가능 최저 순위 : 7 - (count)
 	 */
 	public static int[] solution(int[] lottos, int[] win_nums) {
-		int[] answer = {};
-		
-//		ArrayList<Integer> numbers = new ArrayList<>();
-//		int count = 0;
-//		
-//		for(int i=0; i<lottos.length; i++) {
-//			if(lottos[i] == 0) {
-//				count++;
-//			} else {
-//				numbers.add(lottos[i]);
-//				// 아니면 1~45까지의 
-//			}
-//		}
+		int[] answer = new int[2];
 		
 		ArrayList<String> numbers = new ArrayList<>();
-		for(int i=1; i<=45; i++) {
-			numbers.add(i+"");
+		for(int i=0; i<6; i++) {
+			numbers.add(win_nums[i]+"");
 		}
 		
 		int count = 0; 
+		int countZeros = 0;
 		for(int i=0; i<lottos.length; i++) {
-			if(lottos[i]==0) {
+			if(numbers.contains(lottos[i]+"")) {
 				count++;
-			} else {
-				numbers.remove(lottos[i]+""); //ArrayList.remove()의 파라미터로 정수가 들어가면 자동으로  index로 인식하여 해당 인덱스의 값을 삭제하기 때문에, String 으로 선언했다
+			} else if(lottos[i]==0) {
+				countZeros++;
 			}
 		}
 		
-		int win_count = 6;
-		for(int i=0; i<6; i++) {
-			if(numbers.remove(win_nums[i]+"")) { // 민우가 뽑은 수를 제외한 번호 중 win_num과 겹치는 수가 있다면 지워짐 => 민우가 못 뽑았음. 즉 
-				win_count--;
-			}
-		}
-		
-		
-		
-	        
-	        
-	        
+		if(count+countZeros<=1){
+            answer[0] = 6;
+        } else {
+            answer[0] = 7-count-countZeros;
+        }
+        if(count<=1){
+            answer[1] = 6;
+        } else {
+            answer[1] = 7-count;
+        }
 	        
         return answer;
     }
