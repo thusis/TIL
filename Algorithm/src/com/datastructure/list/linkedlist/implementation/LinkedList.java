@@ -130,6 +130,50 @@ public class LinkedList {
 	}
 	//https://www.youtube.com/watch?v=T4oFZYVkrl0 
 
+	public int size() {
+		return size;
+	}
+
+	public Object get(int k) {
+		Node temp = node(k);
+		return temp.data;
+	}
+
+	public int indexOf(Object data) {
+		Node temp = head;
+		int index = 0;
+		while(temp.data != data) {
+			temp = temp.next;
+			index++;
+			if(temp==null) {
+				return -1;
+			}
+		}
+		return index;
+	}
+
+	public ListIterator listIterator() {
+		return new ListIterator();
+	}
+
+	class ListIterator{
+		private Node next;
+		private Node lastReturned;
+		private int nextIndex;
+		
+		ListIterator(){
+			next = head;
+		}
+
+		public Object next() {
+			lastReturned = next; // 현재 next 로 head 를 추천하고 
+			next = next.next;
+			nextIndex++;
+			
+			return lastReturned.data;
+		}
+	}
+//	https://youtu.be/-dr28wmorIM
 	
 	
 }
